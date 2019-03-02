@@ -12,6 +12,7 @@ Kalman filter applied to a linear Gaussian model
 """
 
 import sys
+#### Add file path for the kalman_filters class. ####
 sys.path.insert(0, '/Users/danburrows/Desktop/Programming/Python/PhD/Classes')
 import numpy as np
 from scipy.stats import multivariate_normal as norm
@@ -32,16 +33,9 @@ T = int(sys.argv[1])                # Finishing time.
 ##################
 state_dim = np.matrix(kf.A).shape[0]
 obs_dim = np.matrix(kf.H).shape[0]
-if state_dim == 1:
-    states = np.empty(T + 1)
-    filts = np.empty(T + 1)
-else:
-    states = np.empty((T + 1, state_dim))
-    filts = np.empty((T + 1, state_dim))
-if obs_dim == 1:
-    obs = np.empty(T + 1)
-else:
-    obs = np.empty((T + 1, obs_dim))
+states = np.empty((T + 1, state_dim))
+filts = np.empty((T + 1, state_dim))
+obs = np.empty((T + 1, obs_dim))
     
 
 ##################
